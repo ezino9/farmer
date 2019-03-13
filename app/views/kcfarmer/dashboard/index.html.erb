@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-4">
+        <h3><%= link_to  "ALL ARTICLES", kcfarmer_blogs_path %></h3>
+        <% if @blogs.present? %>
+            <table class="table table-stripped">
+                <thead>
+                    <td>Title</td>
+                    <td>Posted At</td>
+                </thead>
+                <% @blogs.each do |blog|%>
+                    <tr>
+                        <td><%= blog.title%></td>
+                        <td><%= blog.created_at%></td>
+                        
+                    </tr>
+                <% end %>
+            </table>
+        <% else %>
+        <p>No articles available</p>
+        <% end %>
+    </div>
+
+    <div class="col-md-4">
+        <h3><%= link_to  "OPEN FARMS", kcfarmer_blogs_path %></h3>
+        <% if @blogs.present? %>
+            <table class="table table-stripped">
+                <thead>
+                    <td>Title</td>
+                    <td>Posted At</td>
+                </thead>
+                
+                <% @blogs.each do |blog|%>
+                    <tr>
+                        <td><%= blog.title%></td>
+                        <td><%= blog.created_at%></td>
+                        
+                    </tr>
+                <% end %>
+            </table>
+        
+        <% else %>
+            <p>No Open farms available</p>
+        <% end %>
+    </div><!-- /Open farms-->
+
+    <!--=================================
+                    FARMERS
+    ===================================-->
+    <div class="col-md-4">
+       <h3>MANAGE FARMERS</h3>
+       <%= link_to  "New Member", new_user_registration_path, class:'btn btn-primary pull-right' %>
+        <% if current_user.role == 'Farmer'%>
+           
+         
+            <table class="table table-stripped">
+                <thead>
+                    <td>Names</td>
+                    <td>Email</td>
+                    <td>Telephone</td>
+                </thead>
+                 <% @members.each do |member| %>
+                <tr>
+                    <td><%= member.first_name %> <%= member.last_name %></td>
+                    <td><%= member.email %></td>
+                    <td><%= member.telephone %></td>
+                </tr>
+            </table>
+          <% end %>
+        <% end %>
+    </div>
+</div>

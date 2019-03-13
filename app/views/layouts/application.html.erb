@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>KC Farmer</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="description" content="">
+  </head>
+
+  <body>
+<!--==========================
+    Header
+  ============================-->
+  	<div id="page">
+		<div id="header">
+			<div>
+        <%= link_to root_path do %>
+          <%= image_tag  "logo.png", alt:'', class:'logo' %>
+        <% end %>
+				<ul class="nav-menu navigation pull-rigth">
+          <li class="menu-active"><%= link_to  "Home", root_path %></li>
+          <li><%= link_to  "About Us", about_path %></li>
+          <li><a href="#portfolio">Blog</a></li>
+          <li><a href="#services">Farmshop</a></li>
+          <li><a href="#team">FAQs</a></li>
+          <li><%= link_to  "Contact Us", contact_path %></li>
+        </ul>
+			</div>
+		</div>
+		</div>
+
+    <div class="container">
+
+      <% if flash[:notice]%>
+        <div class="alert alert-success"><%= flash[:notice]%></div>
+      <% end %>
+      <% if flash[:alert]%>
+        <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <% end %>
+
+      <%= yield %>
+      
+
+    </div><!-- /.container -->
+<div class="footnote">
+			
+				<div  id="footer" >
+					<h1>FOLLOW US ON SOCIAL MEDIA</h1>
+						<div class="pull-right">
+              <a href="https://www.facebook.com/Ezno9-1629675853803658/?ref=br_tf" class="btn btn-primary"><i class="fa fa-facebook-f"></i></a>&nbsp;
+              <a href="https://www.twitter.com/eznobaboa" class="btn btn-primary"><i class="fa fa-twitter"></i></a>&nbsp;
+              <a href="https://www.instagram.com/ezno9/" class="btn btn-primary"><i class="fa fa-instagram"></i></a>&nbsp;
+              <a href="https://www.linkedin.com/in/ezno9" class="btn btn-primary"><i class="fa fa-linkedin"></i></a>&nbsp;
+              <a href="https://www.youtube.com/channel/UC8TuNR5lRpmPi87oxdGPu1g/featured?view_as=subscriber" class="btn btn-primary"><i class="fa fa-youtube"></i></a>
+         
+            </div>
+				
+			</div>
+      <hr>
+			<div>
+				
+					<p>&copy; 2019 BY KC FARMER | ALL RIGHTS RESERVED</p>
+				
+			</div>
+		</div>
+
+  </body>
+</html>
+

@@ -1,0 +1,2 @@
+module Kcfarmer::BlogsHelper
+end

@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-4">
+        <h3>ALL ARTICLES</h3>
+        <%= link_to  "Add New", kcfarmer_blogs_new_path, class:'btn btn-primary pull-right' %>
+        <% if @blogs.present? %>
+            <table class="table table-stripped">
+                <thead>
+                    <td>Title</td>
+                    <td>Action</td>
+                </thead>
+                <% @blogs.each do |blog|%>
+                    <tr>
+                        <td><%= blog.title%></td>
+                        <td><%= link_to  "Read more", kcfarmer_blog_path(blog), class:'btn btn-default' %><%= link_to  "Delete", kcfarmer_blogs_destroy_path(blog), method: :delete, class:'btn btn-danger' %></td>                        
+                    </tr>
+                <% end %>
+            </table>
+        <% else %>
+        <p>No articles available</p>
+        <% end %>
+    </div>
+</div>

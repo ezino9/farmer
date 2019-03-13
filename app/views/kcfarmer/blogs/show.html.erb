@@ -1,0 +1,17 @@
+<h2 class=page-header><%= @blog.title%></h2>
+        <div class="thumbnail">
+           <%if @blog.coverpicture.present?%>
+           <%= image_tag  "#{@blog.coverpicture}", width:'50%' %>
+           <% else %> 
+           <%= image_tag  "img/image2.jpg" %>
+           <% end %> 
+        </div>
+        <div class="content">
+            <%= raw @blog.body %>
+        </div>
+        <div class="">
+            <p><strong>Posted on: </strong><%= @blog.created_at.to_time.strftime('%A (%b %e, %Y at %H : %M %p)')%></p>
+        </div>
+        <%= link_to  "Edit post ", kcfarmer_blogs_edit_path(@post), class:'btn btn-info' %> 
+        <%= link_to  "Back", kcfarmer_root_path, class:'btn btn-default ' %>
+    </div>
